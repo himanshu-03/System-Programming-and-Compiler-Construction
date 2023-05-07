@@ -4,12 +4,9 @@ built_in_functions = ['clrscr()','printf()','scanf()','getch()','main()']
 operators = ['+','-','*','/','%','==','!=','>','<','>=','<=','&&','||','!','&','|','^','~','>>','<<','=','+=','-=','*=']
 specialsymbol = ['@','#','$','_','!']
 separator = [',',':',';','\n','\t','{','}','(',')','[',']']
-comment_pattern = r'//.*?$'   # Match the start of a comment
 
-with open('./Write a program to design handwritten lexical analyzer using programming  language. (Display identifier, symbols and remove comment from program)/lexical.c', 'r') as file:
+with open('lexical.c', 'r') as file:
     source_code = file.read()
-
-source_code = re.sub(r'//.*?$', '', source_code, flags=re.MULTILINE)
 
 splitCode = source_code.split() 
 length = len(splitCode)    
