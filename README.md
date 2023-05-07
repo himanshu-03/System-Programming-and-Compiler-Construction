@@ -6,7 +6,7 @@
 
 3. Write a program to implement 2-pass assembler. [Display MOT and POT contents from ALP code]
 
-4. Write a program to implement single macro processor. [Display macro name table, macro definition table, Argument List Array]
+4. [Write a program to implement single macro processor. (Display macro name table, macro definition table, Argument List Array)](./Write%20a%20program%20to%20implement%20single%20macro%20processor.%20(Display%20macro%20name%20table%2C%20macro%20definition%20table%2C%20Argument%20List%20Array)/)
 
 5. Write a program to implement single pass macro processor. [Display macro expansion, predefine MDT and MNT tables]
 
