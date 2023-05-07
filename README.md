@@ -1,10 +1,10 @@
 # System-Programming-and-Compiler-Construction
 
-1. Write a program to implement two- pass assembler. [Generate the symbol table, literal table from ALP code]
+1. [Write a program to implement two- pass assembler. [Generate the symbol table, literal table from ALP code]](./Write%20a%20program%20to%20implement%20two%20pass%20assembler/)
 
-2. Write a program to implement two –pass assembler. [Generate the base table, location counter (LC)]
+2. [Write a program to implement two –pass assembler. [Generate the base table, location counter (LC)]](./Write%20a%20program%20to%20implement%20two%20pass%20assembler/)
 
-3. Write a program to implement 2-pass assembler. [Display MOT and POT contents from ALP code]
+3. [Write a program to implement 2-pass assembler. [Display MOT and POT contents from ALP code]](./Write%20a%20program%20to%20implement%20two%20pass%20assembler/)
 
 4. [Write a program to implement single macro processor. (Display macro name table, macro definition table, Argument List Array)](./Write%20a%20program%20to%20implement%20single%20macro%20processor.%20(Display%20macro%20name%20table%2C%20macro%20definition%20table%2C%20Argument%20List%20Array)/)
 
