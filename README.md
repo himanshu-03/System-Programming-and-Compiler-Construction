@@ -1,6 +1,6 @@
 # System Programming and Compiler Construction
 
-| Sr.No. | Links |
+| Sr.No | Links |
 | :---: | :--- |
 | 1. | [Write a program to implement Two- Pass assembler. [Generate the symbol table, literal table from ALP code]](./Two%20Pass%20Assembler/) |
 | 2. | [Write a program to implement Two – Pass assembler. [Generate the base table, location counter (LC)]](./Two%20Pass%20Assembler/) |
