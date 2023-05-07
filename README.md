@@ -30,6 +30,6 @@
 
 15. Write a program to implement automated lexical analyzer using LEX tool
 
-16. Write a program to design handwritten lexical analyzer using programming  language. (Display identifier, symbols and remove comment from program]
+16. [Write a program to design handwritten lexical analyzer using programming  language. (Display identifier, symbols and remove comment from program)](./Write%20a%20program%20to%20design%20handwritten%20lexical%20analyzer%20using%20programming%20%20language.%20(Display%20identifier%2C%20symbols%20and%20remove%20comment%20from%20program)/)
 
 17. Write a program to implement two- pass assembler. [Generate the symbol table, literal table from ALP code]
