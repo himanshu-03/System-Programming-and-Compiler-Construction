@@ -8,9 +8,9 @@
 
 4. [Write a program to implement single macro processor. (Display macro name table, macro definition table, Argument List Array)](./Write%20a%20program%20to%20implement%20single%20macro%20processor.%20(Display%20macro%20name%20table%2C%20macro%20definition%20table%2C%20Argument%20List%20Array)/)
 
-5. Write a program to implement single pass macro processor. [Display macro expansion, predefine MDT and MNT tables]
+5. [Write a program to implement single pass macro processor. [Display macro expansion, predefine MDT and MNT tables]](./Write%20a%20program%20to%20implement%20one%20pass%20assembler/)
 
-6. Write a program to implement single pass macro processor. [Identify macros and perform macro expansion]
+6. [Write a program to implement single pass macro processor. [Identify macros and perform macro expansion]](./Write%20a%20program%20to%20implement%20one%20pass%20assembler/)
 
 7. [Write a program to find the first set of given grammar.](./Write%20a%20program%20to%20find%20the%20first%20set%20of%20given%20grammar/)
 
