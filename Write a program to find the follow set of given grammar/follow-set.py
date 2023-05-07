@@ -1,15 +1,53 @@
 import sys
 sys.setrecursionlimit(60)
 
+def first(string):
+    first_ = set()                                  # Initialising Empty set to store first set
+
+    if string in non_terminals:                     # If the given string is a non-terminal symbol
+        alternatives = productions_dict[string]
+
+        for alternative in alternatives:            
+            first_2 = first(alternative)
+            first_ = first_ |first_2
+
+    elif string in terminals:
+        first_ = {string}                           # Set the First set to a set containing only the given terminal symbol
+
+    elif string=='' or string=='@':
+        first_ = {'@'}                              # Set the First set to a set containing only the epsilon symbol
+
+    else:                                           # S -> AB
+        first_2 = first(string[0])                  # A - > a | b | @
+        if '@' in first_2:
+            i = 1
+            while '@' in first_2:
+
+                first_ = first_ | (first_2 - {'@'})  
+                if string[i:] in terminals:
+                    first_ = first_ | {string[i:]}
+                    break
+                elif string[i:] == '':
+                    first_ = first_ | {'@'}
+                    break
+                first_2 = first(string[i:])
+                first_ = first_ | first_2 - {'@'}
+                i += 1
+        else:
+            first_ = first_ | first_2
+
+    return  first_
+
 def follow(nT):
-    #print("inside follow({})".format(nT))
-    follow_ = set()
-    #print("FOLLOW", FOLLOW)
+
+    follow_ = set()                             # Initialising Empty set to store follow set
+
     prods = productions_dict.items()
+
     if nT==starting_symbol:
         follow_ = follow_ | {'$'}
-    for nt,rhs in prods:
-        #print("nt to rhs", nt,rhs)
+
+    for nt,rhs in prods:                        # Following Follow Set Rules one-by-one
         for alt in rhs:
             for char in alt:
                 if char==nT:
@@ -26,51 +64,49 @@ def follow(nT):
                             follow_ = follow_ | follow(nt)
                         else:
                             follow_ = follow_ | follow_2
-    #print("returning for follow({})".format(nT),follow_)
+
     return follow_
 
 
-no_of_terminals=int(input("Enter no. of terminals: "))
-
 terminals = []
+non_terminals = []
+productions = []
+productions_dict = {}
 
-print("Enter the terminals :")
+# Taking Terminals
+
+no_of_terminals=int(input("Enter number of terminals: "))
+print("Enter", no_of_terminals ,"terminals: ")
 for _ in range(no_of_terminals):
     terminals.append(input())
 
-no_of_non_terminals=int(input("Enter no. of non terminals: "))
+print("\n-----------------------------------------------------\n")
 
-non_terminals = []
+# Taking Non Terminals
 
-print("Enter the non terminals :")
+no_of_non_terminals=int(input("Enter number of non-terminals: "))
+print("Enter",no_of_non_terminals, "non terminals :")
 for _ in range(no_of_non_terminals):
     non_terminals.append(input())
 
+print("\n-----------------------------------------------------\n")
+
+# Taking Starting Symbol
+
 starting_symbol = input("Enter the starting symbol: ")
+print("\n-----------------------------------------------------\n")
 
-no_of_productions = int(input("Enter no of productions: "))
+# Taking Productions
 
-productions = []
-
-print("Enter the productions:")
+no_of_productions = int(input("Enter no. of productions: "))
+print("Enter", no_of_productions ,"productions:")
 for _ in range(no_of_productions):
     productions.append(input())
 
-
-#print("terminals", terminals)
-
-#print("non terminals", non_terminals)
-
-#print("productions",productions)
-
-
-productions_dict = {}
+print("\n-----------------------------------------------------\n")
 
 for nT in non_terminals:
     productions_dict[nT] = []
-
-
-#print("productions_dict",productions_dict)
 
 for production in productions:
     nonterm_to_prod = production.split("->")
@@ -78,24 +114,15 @@ for production in productions:
     for alternative in alternatives:
         productions_dict[nonterm_to_prod[0]].append(alternative)
 
-#print("productions_dict",productions_dict)
-
-#print("nonterm_to_prod",nonterm_to_prod)
-#print("alternatives",alternatives)
-
 FOLLOW = {}
 
 for non_terminal in non_terminals:
     FOLLOW[non_terminal] = set()
 
-#print("FIRST",FIRST)
-
 
 FOLLOW[starting_symbol] = FOLLOW[starting_symbol] | {'$'}
 for non_terminal in non_terminals:
     FOLLOW[non_terminal] = FOLLOW[non_terminal] | follow(non_terminal)
-
-#print("FOLLOW", FOLLOW)
 
 print("{: ^20}{: ^20}".format('Non Terminals','Follow'))
 for non_terminal in non_terminals:

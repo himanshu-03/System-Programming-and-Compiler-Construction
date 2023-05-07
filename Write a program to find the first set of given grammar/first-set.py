@@ -2,30 +2,28 @@ import sys
 sys.setrecursionlimit(60)
 
 def first(string):
-    #print("first({})".format(string))
-    first_ = set()
-    if string in non_terminals:
+    first_ = set()                                  # Initialising Empty set to store first set
+
+    if string in non_terminals:                     # If the given string is a non-terminal symbol
         alternatives = productions_dict[string]
 
-        for alternative in alternatives:
+        for alternative in alternatives:            
             first_2 = first(alternative)
             first_ = first_ |first_2
 
     elif string in terminals:
-        first_ = {string}
+        first_ = {string}                           # Set the First set to a set containing only the given terminal symbol
 
     elif string=='' or string=='@':
-        first_ = {'@'}
+        first_ = {'@'}                              # Set the First set to a set containing only the epsilon symbol
 
-    else:
-        first_2 = first(string[0])
+    else:                                           # S -> AB
+        first_2 = first(string[0])                  # A - > a | b | @
         if '@' in first_2:
             i = 1
             while '@' in first_2:
-                #print("inside while")
 
-                first_ = first_ | (first_2 - {'@'})
-                #print('string[i:]=', string[i:])
+                first_ = first_ | (first_2 - {'@'})  
                 if string[i:] in terminals:
                     first_ = first_ | {string[i:]}
                     break
@@ -38,41 +36,48 @@ def first(string):
         else:
             first_ = first_ | first_2
 
-
-    #print("returning for first({})".format(string),first_)
     return  first_
 
 
-
-no_of_terminals=int(input("Enter no. of terminals: "))
-
 terminals = []
+non_terminals = []
+productions = []
+productions_dict = {}
 
-print("Enter the terminals :")
+# Taking Terminals
+
+no_of_terminals=int(input("Enter number of terminals: "))
+print("Enter", no_of_terminals ,"terminals: ")
 for _ in range(no_of_terminals):
     terminals.append(input())
 
-no_of_non_terminals=int(input("Enter no. of non terminals: "))
+print("\n-----------------------------------------------------\n")
 
-non_terminals = []
+# Taking Non Terminals
 
-print("Enter the non terminals :")
+no_of_non_terminals=int(input("Enter number of non-terminals: "))
+print("Enter",no_of_non_terminals, "non terminals :")
 for _ in range(no_of_non_terminals):
     non_terminals.append(input())
 
+print("\n-----------------------------------------------------\n")
+
+# Taking Starting Symbol
+
 starting_symbol = input("Enter the starting symbol: ")
+print("\n-----------------------------------------------------\n")
 
-no_of_productions = int(input("Enter no of productions: "))
+# Taking Productions
 
-productions = []
-
-print("Enter the productions:")
+no_of_productions = int(input("Enter no. of productions: "))
+print("Enter", no_of_productions ,"productions:")
 for _ in range(no_of_productions):
     productions.append(input())
 
-productions_dict = {}
+print("\n-----------------------------------------------------\n")
 
-for nT in non_terminals:
+
+for nT in non_terminals:                    # initializes an empty list for each non-terminal in the grammar
     productions_dict[nT] = []
 
 for production in productions:
@@ -81,19 +86,14 @@ for production in productions:
     for alternative in alternatives:
         productions_dict[nonterm_to_prod[0]].append(alternative)
 
-
 FIRST = {}
 
-for non_terminal in non_terminals:
+for non_terminal in non_terminals:          # an empty set created for each non terminal
     FIRST[non_terminal] = set()
-
-#print("FIRST",FIRST)
 
 for non_terminal in non_terminals:
     FIRST[non_terminal] = FIRST[non_terminal] | first(non_terminal)
 
-
-#print("FOLLOW", FOLLOW)
 
 print("{: ^20}{: ^20}".format('Non Terminals','First'))
 for non_terminal in non_terminals:
