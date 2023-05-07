@@ -20,9 +20,9 @@
 
 10. [Write a program to design handwritten lexical analyzer using programming  language. (Display numbers, identifier, preprocessor directives)](./Write%20a%20program%20to%20design%20handwritten%20lexical%20analyzer%20using%20programming%20%20language.%20(Display%20numbers%2C%20identifier%2C%20preprocessor%20directives)/)
 
-11. Write a program to implement following code optimization techniques. 1) Algebraic simplification 2) Common sub expression elimination.
+11. [Write a program to implement following code optimization techniques. 1) Algebraic simplification 2) Common sub expression elimination.](./Write%20a%20program%20to%20implement%20following%20code%20optimization%20techniques.%201-%20Dead%20Code%20Elimination%202-%20Common%20sub%20expression%20elimination/)
 
-12. Write a program to implement following code optimization techniques. 1)Dead Code Elimination 2) Constant Propagation
+12. [Write a program to implement following code optimization techniques. 1)Dead Code Elimination 2) Constant Propagation](./Write%20a%20program%20to%20implement%20following%20code%20optimization%20techniques%201-%20Dead%20Code%20Elimination%202-%20Common%20sub%20expression%20elimination/)
 
 13. [Write a program to implement Intermediate Code Generator using 3-Address code using triples.](./Write%20a%20program%20to%20implement%20Intermediate%20Code%20Generator%20using%203-Address%20code%20using%20triples/)
 
